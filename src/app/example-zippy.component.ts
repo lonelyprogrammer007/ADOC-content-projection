@@ -1,11 +1,19 @@
-import { Component, Directive, Input, TemplateRef, ContentChild, HostBinding, HostListener } from '@angular/core';
+import {
+  Component,
+  Directive,
+  Input,
+  TemplateRef,
+  ContentChild,
+  HostBinding,
+  HostListener,
+} from '@angular/core';
 
 @Directive({
   selector: 'button[appExampleZippyToggle]',
 })
 export class ZippyToggleDirective {
-  @HostBinding('attr.aria-expanded') ariaExpanded = this.zippy.expanded;
-  @HostBinding('attr.aria-controls') ariaControls = this.zippy.contentId;
+  // @HostBinding('attr.aria-expanded') ariaExpanded = this.zippy.expanded;
+  // @HostBinding('attr.aria-controls') ariaControls = this.zippy.contentId;
   @HostListener('click') toggleZippy() {
     this.zippy.expanded = !this.zippy.expanded;
   }
@@ -15,7 +23,7 @@ export class ZippyToggleDirective {
 let nextId = 0;
 
 @Directive({
-  selector: '[appExampleZippyContent]'
+  selector: '[appExampleZippyContent]',
 })
 export class ZippyContentDirective {
   constructor(public templateRef: TemplateRef<unknown>) {}
@@ -30,7 +38,6 @@ export class ZippyComponent {
   @Input() expanded = false;
   @ContentChild(ZippyContentDirective) content!: ZippyContentDirective;
 }
-
 
 /*
 Copyright Google LLC. All Rights Reserved.

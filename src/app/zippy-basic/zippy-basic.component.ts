@@ -5,10 +5,9 @@ import { Component } from '@angular/core';
   template: `
     <h2>Single-slot content projection</h2>
     <ng-content></ng-content>
-  `
+  `,
 })
 export class ZippyBasicComponent {}
-
 
 /*
 Copyright Google LLC. All Rights Reserved.
